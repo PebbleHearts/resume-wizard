@@ -1,0 +1,9 @@
+.component-wrapper {
+  position: relative;
+}
+
+.quick-actions-menu {
+  position: absolute;
+  left: 110%;
+  top: 0;
+}

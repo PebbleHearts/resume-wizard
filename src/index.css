@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: black;
+}
+
+@media print {
+  @page {
+    size: A4 !important;
+    margin: 20px !important;
+    padding: 40px;
+  }
+  .hide-on-print {
+    display: none;
+  }
+  .resume-container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .resume {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+}

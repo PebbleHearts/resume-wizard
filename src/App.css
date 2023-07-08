@@ -1,0 +1,27 @@
+.header {
+  padding: 20px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.resume-container {
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  /* overflow-y: auto; */
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.resume {
+  width: 826px;
+  background-color: white;
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
