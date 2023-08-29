@@ -1,0 +1,41 @@
+.portalContainer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.portalWrapper {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    min-width: 300px;
+    position: relative;
+}
+
+.portalCloseButton {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dddddd;
+    border-radius: 50%;
+    position: absolute;
+    top: -17.5px;
+    right: -17.5px;
+    cursor: pointer;
+}
+
+.portalHeaderSection {
+    align-self: flex-end;
+}
+
+.portalCloseButton:hover {
+    background-color: #e1e1e1;
+}
