@@ -42,30 +42,14 @@
 
 .resumeContainer {
   background-color: white;
-  padding: 30px;
-  background-color: white;
   position: relative;
   box-sizing: border-box;
   box-shadow: 2px 2px 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .resumeContainer::-webkit-scrollbar {
   display: none;
-}
-
-.document {
-  box-sizing: border-box;
-}
-
-.spacer {
-  height: 20px;
-}
-
-.pageBreakIndicator {
-  height: 2px;
-  background-color: green;
-  position: absolute;
-  left: 0;
-  right: 0;
 }
