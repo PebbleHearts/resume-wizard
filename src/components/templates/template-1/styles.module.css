@@ -66,6 +66,13 @@
     margin-top: 3px;
     line-height: 21px;
 }
+.workDescriptionItem {
+    display: flex;
+    flex-direction: row;
+}
+.workDescriptionItemIndicator {
+    margin-right: 5px;
+}
 
 .skillsSection {
     padding-top: 20px;
@@ -109,4 +116,22 @@
 .referenceEmail {
     font-size: 16px;
     margin-top: 3px;
+}
+
+.personalInfoSection {
+    padding-top: 20px;
+}
+.personalInfoItem {
+    display: flex;
+    flex-direction: row;
+}
+.icon {
+    margin-right: 5px;
+}
+
+.educationSection {
+    padding-top: 20px;
+}
+.educationItem {
+    padding-top: 10px;
 }
