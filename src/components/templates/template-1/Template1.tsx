@@ -31,13 +31,13 @@ const Template1 = ({ data }: TemplateProps) => {
             </div>
 
             {experience?.map((item) => (
-              <div className={styles.workItem}>
+              <div key={item.title} className={styles.workItem}>
                 <div className={styles.workTitle}>{item.title} - {item.startDate} - {item.endDate}</div>
                 <div className={styles.workSubTitle}>{item.company}</div>
                 <div className={styles.workDetails}>
                   <div>
                     {item.description.map((descItem) => (
-                      <div className={styles.workDescriptionItem}>
+                      <div key={descItem} className={styles.workDescriptionItem}>
                         <div className={styles.workDescriptionItemIndicator}>&#8226;</div>
                         <div>{descItem}</div>
                       </div>
@@ -53,7 +53,7 @@ const Template1 = ({ data }: TemplateProps) => {
               </div>
               <div className={styles.skillsListContainer}>
                 {skills?.map((item) => (
-                  <div className={styles.skill}>{item.label}</div>
+                  <div key={item.label} className={styles.skill}>{item.label}</div>
                 ))}
               </div>
             </div>
@@ -64,7 +64,7 @@ const Template1 = ({ data }: TemplateProps) => {
               </div>
               <div className={styles.referenceListContainer}>
                 {references?.map((item) => (
-                  <div className={styles.reference}>
+                  <div key={item.name} className={styles.reference}>
                     <div className={styles.referenceName}>{item.name}</div>
                     <div className={styles.referenceSubDetail}>{item.detail}</div>
                     <div className={styles.referencePhoneNumber}>P: {item.phoneNumber}</div>
@@ -96,7 +96,7 @@ const Template1 = ({ data }: TemplateProps) => {
               </div>
               <div className={styles.educationsListListContainer}>
                 {educationDetails?.map((item) => (
-                  <div className={styles.educationItem}>
+                  <div key={`${item.educationType}-${item.university}`} className={styles.educationItem}>
                     <div className={styles.educationItemTimeline}>{item.startDate} - {item.endDate}</div>
                     <div className={styles.educationItemType}>{item.educationType}</div>
                     <div className={styles.educationItemUniversity}>{item.university}</div>

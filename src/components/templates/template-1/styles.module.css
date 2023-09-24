@@ -11,7 +11,7 @@
     font-weight: 800;
 }
 .surname {
-    color: #3cc5ff;
+    color: #0BBFF4;
 }
 .designation {
     color: #404040;
@@ -86,7 +86,7 @@
 }
 .skill {
     background-color: #86d9ff;
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 100px;
     color: #404040;
 }
