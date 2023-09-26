@@ -30,6 +30,26 @@ export const DUMMY_RESUME_DATA: ResumeData = {
       ],
       startDate: '2019',
       endDate: '2023'
+    },
+    {
+      title: 'Software Engineer Trainee',
+      company: 'Ust Global',
+      description: [
+        'Learned about html css',
+        'Learned about java spring boot and Angular js'
+      ],
+      startDate: '2019',
+      endDate: '2023'
+    },
+    {
+      title: 'Senior Software Engineer',
+      company: 'Keyvalue Software Systems Pvt Ltd / Kochi',
+      description: [
+        'Manged a lot of task',
+        'Worked with React and React native at the same time. Had to manage a small front end team. Working in splitting and assinging tasks.'
+      ],
+      startDate: '2019',
+      endDate: '2023'
     }
   ],
   educationDetails: [
