@@ -1,6 +1,4 @@
-import Heading from './heading/Heading';
-import SubHeading from './sub-heading/SubHeading';
 import Portal from './portal/Portal';
-import List from './list/List';
+import PdfPreviewModal from './pdf-preview-modal/PdfPreviewModal';
 
-export { Heading, SubHeading, Portal, List };
+export { Portal, PdfPreviewModal };
