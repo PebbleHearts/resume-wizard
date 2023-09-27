@@ -1,9 +1,10 @@
-import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
-
 import { Text } from "../..";
 import { FontSize } from "../../../constants/components";
 import { ResumeData } from "../../../types/common";
 import styles from "./styles.module.css";
+import MyImage from "../../../assets/imgimg.jpg";
+import PhoneIcon from "./assets/telephone.png";
+import MailIcon from "./assets/mail.png";
 
 type TemplateProps = {
   data: ResumeData;
@@ -105,15 +106,28 @@ const Template1 = ({ data }: TemplateProps) => {
               </div>
             </div>
           </div>
+
           <div className={styles.rightSection}>
-            <div className={styles.imageSquare}></div>
+            <div className={styles.imageSquare}>
+              <img src={MyImage} width="100%" height="100%" />
+            </div>
             <div className={styles.personalInfoSection}>
               <div className={styles.personalInfoItem}>
-                <PhoneIcon className={styles.icon} />
+                <img
+                  src={PhoneIcon}
+                  width={15}
+                  height={15}
+                  className={styles.icon}
+                />
                 <div>{personalInfo?.phoneNumber}</div>
               </div>
               <div className={styles.personalInfoItem}>
-                <EmailIcon className={styles.icon} />
+                <img
+                  src={MailIcon}
+                  width={15}
+                  height={15}
+                  className={styles.icon}
+                />
                 <div>{personalInfo?.email}</div>
               </div>
             </div>
