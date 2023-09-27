@@ -1,46 +1,68 @@
-import { ResumeData } from '../../../types/common';
-import styles from './styles.module.css';
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailIcon from "@mui/icons-material/Mail";
+
+import { Text } from "../..";
+import { FontSize } from "../../../constants/components";
+import { ResumeData } from "../../../types/common";
+import styles from "./styles.module.css";
 
 type TemplateProps = {
   data: ResumeData;
-}
+};
 const Template1 = ({ data }: TemplateProps) => {
-  const { personalInfo, profile, experience, skills, educationDetails, references } = data;
+  const {
+    personalInfo,
+    profile,
+    experience,
+    skills,
+    educationDetails,
+    references,
+  } = data;
   return (
     <div className={styles.container}>
-      <div className={styles.nameContainer}>
-        {personalInfo?.firstName} <span className={styles.surname}>{personalInfo?.surname}</span>
-      </div>
-      <div className={styles.designation}>
+      <Text size={FontSize["5xl"]} className={styles.nameContainer}>
+        {personalInfo?.firstName}{" "}
+        <span className={styles.surname}>{personalInfo?.surname}</span>
+      </Text>
+      <Text size={FontSize.lg} className={styles.designation}>
         Front end developer
-      </div>
+      </Text>
 
       <div className={styles.detailSection}>
-        <div className={styles.titleSection}>
+        <Text size={FontSize.base} className={styles.titleSection}>
           PROFILE
-        </div>
-        <div className={styles.sectionData}>
+        </Text>
+        <Text size={FontSize.lg} className={styles.description}>
           {profile?.description}
-        </div>
+        </Text>
 
         <div className={styles.row}>
           <div className={styles.leftSection}>
-
-            <div className={styles.titleSection}>
+            <Text size={FontSize.base} className={styles.titleSection}>
               EXPERIENCE
-            </div>
+            </Text>
 
             {experience?.map((item) => (
               <div key={item.title} className={styles.workItem}>
-                <div className={styles.workTitle}>{item.title} - {item.startDate} - {item.endDate}</div>
-                <div className={styles.workSubTitle}>{item.company}</div>
+                <Text size={FontSize.xl}>
+                  {item.title} - {item.startDate} - {item.endDate}
+                </Text>
+                <Text size={FontSize.lg} className={styles.workSubTitle}>
+                  {item.company}
+                </Text>
                 <div className={styles.workDetails}>
                   <div>
                     {item.description.map((descItem) => (
-                      <div key={descItem} className={styles.workDescriptionItem}>
-                        <div className={styles.workDescriptionItemIndicator}>&#8226;</div>
+                      <Text
+                        key={descItem}
+                        size={FontSize.base}
+                        className={styles.workDescriptionItem}
+                      >
+                        <div className={styles.workDescriptionItemIndicator}>
+                          &#8226;
+                        </div>
                         <div>{descItem}</div>
-                      </div>
+                      </Text>
                     ))}
                   </div>
                 </div>
@@ -48,64 +70,99 @@ const Template1 = ({ data }: TemplateProps) => {
             ))}
 
             <div className={styles.skillsSection}>
-              <div className={styles.titleSection}>
+              <Text size={FontSize.base} className={styles.titleSection}>
                 SKILLS
-              </div>
+              </Text>
               <div className={styles.skillsListContainer}>
                 {skills?.map((item) => (
-                  <div key={item.label} className={styles.skill}>{item.label}</div>
+                  <>
+                    <Text
+                      key={item.label}
+                      size={FontSize.base}
+                      className={styles.skill}
+                    >
+                      {item.label}
+                    </Text>
+                  </>
                 ))}
               </div>
             </div>
 
             <div className={styles.referencesSection}>
-              <div className={styles.titleSection}>
+              <Text size={FontSize.base} className={styles.titleSection}>
                 REFERENCES
-              </div>
+              </Text>
               <div className={styles.referenceListContainer}>
                 {references?.map((item) => (
                   <div key={item.name} className={styles.reference}>
-                    <div className={styles.referenceName}>{item.name}</div>
-                    <div className={styles.referenceSubDetail}>{item.detail}</div>
-                    <div className={styles.referencePhoneNumber}>P: {item.phoneNumber}</div>
-                    <div className={styles.referenceEmail}>E: {item.email}</div>
+                    <Text size={FontSize.xl}>{item.name}</Text>
+                    <Text size={FontSize.lg} className={styles.detail}>
+                      {item.detail}
+                    </Text>
+                    <Text size={FontSize.base}>P: {item.phoneNumber}</Text>
+                    <Text size={FontSize.base}>E: {item.email}</Text>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
           <div className={styles.rightSection}>
-
-            <div className={styles.imageSquare}>
-            </div>
+            <div className={styles.imageSquare}></div>
             <div className={styles.personalInfoSection}>
               <div className={styles.personalInfoItem}>
-                <div className={styles.icon}>&#9742;</div>
-                <div>P: {personalInfo?.phoneNumber}</div>
+                <div className={styles.icon}>
+                  <PhoneIcon style={{ fontSize: 16 }} />
+                </div>
+                <div>{personalInfo?.phoneNumber}</div>
               </div>
               <div className={styles.personalInfoItem}>
-                <div className={styles.icon}>&#9742;</div>
-                <div>E: {personalInfo?.email}</div>
+                <div className={styles.icon}>
+                  <MailIcon style={{ fontSize: 16 }} />
+                </div>
+                <div>{personalInfo?.email}</div>
               </div>
             </div>
 
             <div className={styles.educationSection}>
-              <div className={styles.titleSection}>
-                Education
-              </div>
+              <Text size={FontSize.base} className={styles.titleSection}>
+                EDUCATION
+              </Text>
               <div className={styles.educationsListListContainer}>
                 {educationDetails?.map((item) => (
-                  <div key={`${item.educationType}-${item.university}`} className={styles.educationItem}>
-                    <div className={styles.educationItemTimeline}>{item.startDate} - {item.endDate}</div>
-                    <div className={styles.educationItemType}>{item.educationType}</div>
-                    <div className={styles.educationItemUniversity}>{item.university}</div>
-                    {item.info && ( <div className={styles.educationItemInfo}>{item.info}</div>)}
+                  <div
+                    key={`${item.educationType}-${item.university}`}
+                    className={styles.educationItem}
+                  >
+                    <Text
+                      size={FontSize.lg}
+                      className={styles.educationItemTimeline}
+                    >
+                      {item.startDate} - {item.endDate}
+                    </Text>
+                    <Text
+                      size={FontSize.lg}
+                      className={styles.educationItemType}
+                    >
+                      {item.educationType}
+                    </Text>
+                    <Text
+                      size={FontSize.lg}
+                      className={styles.educationItemType}
+                    >
+                      {item.university}
+                    </Text>
+                    {item.info && (
+                      <Text
+                        size={FontSize.base}
+                        className={styles.educationItemInfo}
+                      >
+                        {item.info}
+                      </Text>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>
