@@ -12,6 +12,7 @@
 }
 .surname {
     color: #0BBFF4;
+    margin-left: 5px;
 }
 .designation {
     color: #404040;
@@ -110,8 +111,10 @@
     flex-direction: row;
     align-items: center;
 }
+
 .icon {
     margin-right: 5px;
+    font-size: 15px;
 }
 
 .educationSection {

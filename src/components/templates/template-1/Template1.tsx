@@ -1,5 +1,4 @@
-import PhoneIcon from "@mui/icons-material/Phone";
-import MailIcon from "@mui/icons-material/Mail";
+import { PhoneIcon, EmailIcon } from '@chakra-ui/icons'
 
 import { Text } from "../..";
 import { FontSize } from "../../../constants/components";
@@ -110,15 +109,11 @@ const Template1 = ({ data }: TemplateProps) => {
             <div className={styles.imageSquare}></div>
             <div className={styles.personalInfoSection}>
               <div className={styles.personalInfoItem}>
-                <div className={styles.icon}>
-                  <PhoneIcon style={{ fontSize: 16 }} />
-                </div>
+                <PhoneIcon className={styles.icon} />
                 <div>{personalInfo?.phoneNumber}</div>
               </div>
               <div className={styles.personalInfoItem}>
-                <div className={styles.icon}>
-                  <MailIcon style={{ fontSize: 16 }} />
-                </div>
+                <EmailIcon className={styles.icon} />
                 <div>{personalInfo?.email}</div>
               </div>
             </div>
