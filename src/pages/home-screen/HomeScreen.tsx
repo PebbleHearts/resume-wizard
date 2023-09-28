@@ -69,7 +69,7 @@ function HomeScreen() {
       </div>
       <div className="resumeScrollAndMenuContainer">
         <div className="menuSection">
-          <EditDetailsForm />
+          <EditDetailsForm data={data} setData={setData} />
         </div>
         <div className="resumeScrollContainer">
           <div

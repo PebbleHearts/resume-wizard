@@ -1,14 +1,14 @@
 export type ResumeData = {
-  personalInfo?: {
+  personalInfo: {
     firstName: string;
     surname: string;
     phoneNumber: string;
     email: string;
   };
-  profile?: {
+  profile: {
     description: string;
   }
-  experience?: {
+  experience: {
     title: string;
     company: string;
     startDate: string;
@@ -16,6 +16,6 @@ export type ResumeData = {
     description: string[]
   }[];
   educationDetails: { startDate: string, endDate: string, university: string, info: string, educationType: string }[]
-  skills?: { label: string, percentage: number }[];
-  references?: { name: string; detail: string; phoneNumber: string; email: string }[]
+  skills: { label: string, percentage: number }[];
+  references: { name: string; detail: string; phoneNumber: string; email: string }[]
 }

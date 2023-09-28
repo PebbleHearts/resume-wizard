@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.field {
+  padding: 10px 0px;
+}
+.field > label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.stretch {
+  flex: 1;
+}
