@@ -75,7 +75,6 @@ const Template1 = ({ data }: TemplateProps) => {
               </Text>
               <div className={styles.skillsListContainer}>
                 {skills?.map((item) => (
-                  <>
                     <Text
                       key={item.label}
                       size={FontSize.base}
@@ -83,7 +82,6 @@ const Template1 = ({ data }: TemplateProps) => {
                     >
                       {item.label}
                     </Text>
-                  </>
                 ))}
               </div>
             </div>

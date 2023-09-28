@@ -3,6 +3,8 @@ import { Input } from "antd";
 import { ResumeData } from "../../../../../types/common";
 import styles from "./styles.module.css";
 import formCommonStyles from "../styles.module.css";
+import { Text } from "../../../../../components";
+import { FontSize } from "../../../../../constants/components";
 
 type PersonalInfoFormProps = {
   data: ResumeData;
@@ -41,7 +43,7 @@ const PersonalInfoForm = ({ data, setData }: PersonalInfoFormProps) => {
 
   return (
     <div>
-      Personal Info
+      <Text size={FontSize["4xl"]}>Personal Info</Text>
       <div className={formCommonStyles.row}>
         <div
           className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}

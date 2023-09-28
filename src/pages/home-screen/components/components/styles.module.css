@@ -6,6 +6,9 @@
 
 .field {
   padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .field > label {
   margin-bottom: 10px;
