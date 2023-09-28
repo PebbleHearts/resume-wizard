@@ -1,0 +1,6 @@
+.formContainer {
+  background-color: rgb(221, 252, 255);
+  flex: 1;
+  align-self: stretch;
+  padding: 30px;
+}

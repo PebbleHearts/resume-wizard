@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 import Template1 from "../../components/templates/template-1/Template1";
 import { DUMMY_RESUME_DATA } from "../../constants/dummy-resume-data";
 import { PdfPreviewModal } from "../../components";
-import EditDetailsForm from "./EditDetailsForm";
+import EditDetailsForm from "./components/EditDetailsForm";
 
 const calculateNumberOfPageBreaks = ({
   totalHeight,
