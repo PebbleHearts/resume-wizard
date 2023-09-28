@@ -7,16 +7,16 @@ import { DUMMY_RESUME_DATA } from "../../constants/dummy-resume-data";
 import { PdfPreviewModal } from "../../components";
 import EditDetailsForm from "./components/EditDetailsForm";
 
-const calculateNumberOfPageBreaks = ({
-  totalHeight,
-  pageHeight,
-}: {
-  totalHeight: number;
-  pageHeight: number;
-}) => {
-  const numberOfPages = Math.floor(totalHeight / pageHeight);
-  return numberOfPages;
-};
+// const calculateNumberOfPageBreaks = ({
+//   totalHeight,
+//   pageHeight,
+// }: {
+//   totalHeight: number;
+//   pageHeight: number;
+// }) => {
+//   const numberOfPages = Math.floor(totalHeight / pageHeight);
+//   return numberOfPages;
+// };
 
 const a4Height = 1404;
 const a4Width = 990;

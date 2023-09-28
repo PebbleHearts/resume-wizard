@@ -1,7 +1,7 @@
 import { Input } from "antd";
 
 import { ResumeData } from "../../../../../types/common";
-import styles from "./styles.module.css";
+// import styles from "./styles.module.css";
 import formCommonStyles from "../styles.module.css";
 import { Text } from "../../../../../components";
 import { FontSize } from "../../../../../constants/components";

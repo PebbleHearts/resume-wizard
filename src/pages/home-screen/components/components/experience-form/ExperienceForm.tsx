@@ -11,7 +11,7 @@ type PersonalInfoFormProps = {
   setData: React.Dispatch<React.SetStateAction<ResumeData>>;
 };
 
-const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
+const ExperienceForm = ({ }: PersonalInfoFormProps) => {
 
   return (
     <div>
