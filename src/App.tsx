@@ -7,7 +7,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/login" Component={LoginScreen} />
-        <Route path="/home" Component={HomeScreen} />
+        <Route path="/" Component={HomeScreen} />
         <Route path="/templates" Component={TemplatesScreen} />
       </Routes>
     </BrowserRouter>
