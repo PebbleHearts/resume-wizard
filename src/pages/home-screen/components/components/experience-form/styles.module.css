@@ -1,3 +1,18 @@
-.page {
-  background-color: green;
+.listingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.experienceItem {
+  background-color: rgb(210, 234, 255);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.addButton {
+  display: flex;
+  justify-content: flex-end;
 }
