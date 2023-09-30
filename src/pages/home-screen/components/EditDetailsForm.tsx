@@ -5,29 +5,32 @@ import styles from "./styles.module.css";
 import { ResumeData } from "../../../types/common";
 import PersonalInfoForm from "./components/personal-info-form/PersonalInfoForm";
 import ExperienceForm from "./components/experience-form/ExperienceForm";
+import SkillsForm from "./components/skills-form/SkillsForm";
 
 type EditDetailsFormProps = {
   data: ResumeData;
   setData: React.Dispatch<React.SetStateAction<ResumeData>>;
 };
 
-enum FormKeys {
-  PersonalInfo = 'PERSONAL_INFO',
-  Experience = 'EXPERIENCE',
-}
+const formKeyArray = [PersonalInfoForm, ExperienceForm, SkillsForm];
 
-const formKeyMap = {
-  [FormKeys.PersonalInfo]: PersonalInfoForm,
-  [FormKeys.Experience]: ExperienceForm,
-};
 const EditDetailsForm = ({ data, setData }: EditDetailsFormProps) => {
-  const [step, setStep] = useState<FormKeys>(FormKeys.PersonalInfo);
+  const [step, setStep] = useState<number>(0);
 
-  const CurrentForm = formKeyMap[step];
+  const CurrentForm = formKeyArray[step];
   return (
     <div className={styles.formContainer}>
       <CurrentForm data={data} setData={setData} />
-      <Button className="bg-white" onClick={() => setStep(FormKeys.Experience)}>Next</Button>
+      <Button
+        className="bg-white"
+        onClick={() =>
+          setStep((prev) => {
+            return prev + 1 >= formKeyArray.length ? prev : prev + 1;
+          })
+        }
+      >
+        Next
+      </Button>
     </div>
   );
 };

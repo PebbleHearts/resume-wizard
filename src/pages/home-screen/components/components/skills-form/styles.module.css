@@ -1,0 +1,21 @@
+.skillsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 0px;
+}
+
+.skillItem {
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.skillItemPercentAndCTA {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
