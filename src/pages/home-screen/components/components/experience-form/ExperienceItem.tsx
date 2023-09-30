@@ -7,6 +7,7 @@ type ExperienceItemProps = {
   designation: string;
   startYear: string;
   endYear: string;
+  onEditClick: () => void;
 };
 
 const ExperienceItem = ({
@@ -14,6 +15,7 @@ const ExperienceItem = ({
   designation,
   startYear,
   endYear,
+  onEditClick
 }: ExperienceItemProps) => {
   return (
     <div className={styles.experienceItem}>
@@ -23,7 +25,7 @@ const ExperienceItem = ({
         <div>{`${startYear} - ${endYear}`}</div>
       </div>
       <div>
-        <Button><EditOutlined /></Button>
+        <Button onClick={onEditClick}><EditOutlined /></Button>
       </div>
     </div>
   );

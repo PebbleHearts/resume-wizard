@@ -7,20 +7,32 @@ import { Text } from "../../../../../components";
 import { FontSize } from "../../../../../constants/components";
 import ExperienceItem from "./ExperienceItem";
 import { useState } from "react";
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 
 type PersonalInfoFormProps = {
   data: ResumeData;
   setData: React.Dispatch<React.SetStateAction<ResumeData>>;
 };
 
+const initialExperienceData = {
+  company: "",
+  title: "",
+  startDate: "",
+  endDate: "",
+  description: [],
+};
+
 const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
-  const [tempFormData, setTempFormData] = useState<Experience>({
-    company: "xyz",
-    title: "Developer",
-    startDate: "2022",
-    endDate: "2023",
-    description: ["asdasdasda"],
-  });
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [tempFormData, setTempFormData] = useState<Experience>(
+    initialExperienceData
+  );
+  const [tempDescription, setTempDescription] = useState<string>('');
+
+  const handleEditItemClick = (editIndex: number) => {
+    setEditIndex(editIndex);
+    setTempFormData(data.experience[editIndex]);
+  };
 
   const handleDesignationChange = (val: string) => {
     setTempFormData((prev) => ({
@@ -52,10 +64,44 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
 
   const handleAddNewItem = () => {
     setData((prev) => {
-      const updatedData = {...prev};
+      const updatedData = { ...prev };
       updatedData.experience = [...updatedData.experience, tempFormData];
       return updatedData;
     });
+    setTempFormData(initialExperienceData);
+  };
+
+  const handleSaveExistingItem = () => {
+    setData((prev) => {
+      const updatedData = { ...prev };
+      if (editIndex !== null) {
+        updatedData.experience[editIndex] = tempFormData;
+      }
+      return updatedData;
+    });
+    setEditIndex(null);
+    setTempFormData(initialExperienceData);
+  };
+
+  const handleDeleteExperienceDescriptionItem = (descIndex: number) => {
+    setTempFormData((prev) => {
+      const updatedData = { ...prev };
+      updatedData.description = updatedData.description.filter(
+        (_, i) => i !== descIndex
+      );
+      return updatedData;
+    });
+  };
+
+  const handleAddExperienceDescriptionItem = () => {
+    setTempFormData((prev) => {
+      const updatedData = { ...prev };
+      if (tempDescription) { 
+        updatedData.description.push(tempDescription);
+      }
+      return updatedData;
+    });
+    setTempDescription('');
   };
 
   return (
@@ -63,7 +109,7 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
       <Text size={FontSize["4xl"]}>Experience Info</Text>
 
       <div className={styles.listingSection}>
-        {data.experience.map((item) => {
+        {data.experience.map((item, index) => {
           return (
             <ExperienceItem
               key={item.company}
@@ -71,6 +117,7 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
               designation={item.title}
               startYear={item.startDate}
               endYear={item.endDate}
+              onEditClick={() => handleEditItemClick(index)}
             />
           );
         })}
@@ -112,8 +159,35 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
       </div>
 
       <div className={formCommonStyles.field}>
+        <label>Description</label>
+        <div className={formCommonStyles.row}>
+          <Input.TextArea onChange={(e) => setTempDescription(e.target.value)} value={tempDescription} />
+          <Button onClick={handleAddExperienceDescriptionItem}>
+            <PlusOutlined />
+          </Button>
+        </div>
+        <div>
+          {tempFormData.description.map((desc, descIndex) => (
+            <div key={desc} className={styles.descriptionItem}>
+              <div>{desc}</div>
+              <Button
+                size="small"
+                onClick={() => handleDeleteExperienceDescriptionItem(descIndex)}
+              >
+                <DeleteOutlined />
+              </Button>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={formCommonStyles.field}>
         <div className={styles.addButton}>
-          <Button onClick={handleAddNewItem}>+ Add</Button>
+          {editIndex === null ? (
+            <Button onClick={handleAddNewItem}>+ Add</Button>
+          ) : (
+            <Button onClick={handleSaveExistingItem}>Save</Button>
+          )}
         </div>
       </div>
     </div>
