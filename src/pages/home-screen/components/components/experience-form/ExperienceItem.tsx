@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import styles from "./styles.module.css";
-import { EditOutlined } from "@ant-design/icons";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 type ExperienceItemProps = {
   company: string;
@@ -8,6 +8,7 @@ type ExperienceItemProps = {
   startYear: string;
   endYear: string;
   onEditClick: () => void;
+  onDeleteClick: () => void;
 };
 
 const ExperienceItem = ({
@@ -15,7 +16,8 @@ const ExperienceItem = ({
   designation,
   startYear,
   endYear,
-  onEditClick
+  onEditClick,
+  onDeleteClick,
 }: ExperienceItemProps) => {
   return (
     <div className={styles.experienceItem}>
@@ -24,8 +26,9 @@ const ExperienceItem = ({
         <div>{designation}</div>
         <div>{`${startYear} - ${endYear}`}</div>
       </div>
-      <div>
+      <div className={styles.experienceItemCtaContainer}>
         <Button onClick={onEditClick}><EditOutlined /></Button>
+        <Button onClick={onDeleteClick}><DeleteOutlined /></Button>
       </div>
     </div>
   );

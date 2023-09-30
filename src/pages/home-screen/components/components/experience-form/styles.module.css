@@ -3,6 +3,9 @@
   flex-direction: column;
   gap: 10px;
 }
+.addExperienceButton {
+  padding: 10px 0px;
+}
 .experienceItem {
   background-color: rgb(210, 234, 255);
   padding: 20px;
@@ -10,6 +13,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.experienceItemCtaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 .descriptionItem {
   background-color: rgb(231, 231, 231);

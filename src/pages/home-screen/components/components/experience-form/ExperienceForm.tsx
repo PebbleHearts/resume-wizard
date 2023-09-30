@@ -23,15 +23,29 @@ const initialExperienceData = {
 };
 
 const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
+  const [isAddingNew, setIsAddingNew] = useState(false);
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [tempFormData, setTempFormData] = useState<Experience>(
     initialExperienceData
   );
-  const [tempDescription, setTempDescription] = useState<string>('');
+  const [tempDescription, setTempDescription] = useState<string>("");
+
+  const showAddForm =
+    data.experience.length === 0 || isAddingNew || editIndex !== null;
 
   const handleEditItemClick = (editIndex: number) => {
     setEditIndex(editIndex);
     setTempFormData(data.experience[editIndex]);
+  };
+
+  const handleDeleteItemClick = (deleteIndex: number) => {
+    setData((prev) => {
+      const updatedData = { ...prev };
+      updatedData.experience = updatedData.experience.filter(
+        (_, index) => index !== deleteIndex
+      );
+      return updatedData;
+    });
   };
 
   const handleDesignationChange = (val: string) => {
@@ -96,12 +110,12 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
   const handleAddExperienceDescriptionItem = () => {
     setTempFormData((prev) => {
       const updatedData = { ...prev };
-      if (tempDescription) { 
+      if (tempDescription) {
         updatedData.description.push(tempDescription);
       }
       return updatedData;
     });
-    setTempDescription('');
+    setTempDescription("");
   };
 
   return (
@@ -118,78 +132,100 @@ const ExperienceForm = ({ data, setData }: PersonalInfoFormProps) => {
               startYear={item.startDate}
               endYear={item.endDate}
               onEditClick={() => handleEditItemClick(index)}
+              onDeleteClick={() => handleDeleteItemClick(index)}
             />
           );
         })}
       </div>
-      <div className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}>
-        <label>Designation</label>
-        <Input
-          value={tempFormData.title}
-          onChange={(e) => handleDesignationChange(e.target.value)}
-        />
-      </div>
-      <div className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}>
-        <label>Company</label>
-        <Input
-          value={tempFormData.company}
-          onChange={(e) => handleCompanyNameChange(e.target.value)}
-        />
-      </div>
 
-      <div className={formCommonStyles.row}>
-        <div
-          className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
-        >
-          <label>Start Date</label>
-          <DatePicker
-            picker="year"
-            onChange={(_, str) => handleStartDateChange(str)}
-          />
-        </div>
-        <div
-          className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
-        >
-          <label>End Date</label>
-          <DatePicker
-            picker="year"
-            onChange={(_, str) => handleEndDateChange(str)}
-          />
-        </div>
-      </div>
-
-      <div className={formCommonStyles.field}>
-        <label>Description</label>
-        <div className={formCommonStyles.row}>
-          <Input.TextArea onChange={(e) => setTempDescription(e.target.value)} value={tempDescription} />
-          <Button onClick={handleAddExperienceDescriptionItem}>
-            <PlusOutlined />
+      {!showAddForm && (
+        <div className={styles.addExperienceButton}>
+          <Button onClick={() => setIsAddingNew(true)}>
+            <PlusOutlined /> Add Experience
           </Button>
         </div>
+      )}
+
+      {showAddForm && (
         <div>
-          {tempFormData.description.map((desc, descIndex) => (
-            <div key={desc} className={styles.descriptionItem}>
-              <div>{desc}</div>
-              <Button
-                size="small"
-                onClick={() => handleDeleteExperienceDescriptionItem(descIndex)}
-              >
-                <DeleteOutlined />
+          <div
+            className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
+          >
+            <label>Designation</label>
+            <Input
+              value={tempFormData.title}
+              onChange={(e) => handleDesignationChange(e.target.value)}
+            />
+          </div>
+          <div
+            className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
+          >
+            <label>Company</label>
+            <Input
+              value={tempFormData.company}
+              onChange={(e) => handleCompanyNameChange(e.target.value)}
+            />
+          </div>
+
+          <div className={formCommonStyles.row}>
+            <div
+              className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
+            >
+              <label>Start Date</label>
+              <DatePicker
+                picker="year"
+                onChange={(_, str) => handleStartDateChange(str)}
+              />
+            </div>
+            <div
+              className={`${formCommonStyles.field} ${formCommonStyles.stretch}`}
+            >
+              <label>End Date</label>
+              <DatePicker
+                picker="year"
+                onChange={(_, str) => handleEndDateChange(str)}
+              />
+            </div>
+          </div>
+
+          <div className={formCommonStyles.field}>
+            <label>Description</label>
+            <div className={formCommonStyles.row}>
+              <Input.TextArea
+                onChange={(e) => setTempDescription(e.target.value)}
+                value={tempDescription}
+              />
+              <Button onClick={handleAddExperienceDescriptionItem}>
+                <PlusOutlined />
               </Button>
             </div>
-          ))}
+            <div>
+              {tempFormData.description.map((desc, descIndex) => (
+                <div key={desc} className={styles.descriptionItem}>
+                  <div>{desc}</div>
+                  <Button
+                    size="small"
+                    onClick={() =>
+                      handleDeleteExperienceDescriptionItem(descIndex)
+                    }
+                  >
+                    <DeleteOutlined />
+                  </Button>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={formCommonStyles.field}>
+            <div className={styles.addButton}>
+              {editIndex === null ? (
+                <Button onClick={handleAddNewItem}>+ Add</Button>
+              ) : (
+                <Button onClick={handleSaveExistingItem}>Save</Button>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={formCommonStyles.field}>
-        <div className={styles.addButton}>
-          {editIndex === null ? (
-            <Button onClick={handleAddNewItem}>+ Add</Button>
-          ) : (
-            <Button onClick={handleSaveExistingItem}>Save</Button>
-          )}
-        </div>
-      </div>
+      )}
     </div>
   );
 };
