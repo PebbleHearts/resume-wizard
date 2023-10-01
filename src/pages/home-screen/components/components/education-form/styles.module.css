@@ -5,6 +5,12 @@
   padding: 20px 0px;
 }
 
+.listingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .skillItem {
   background-color: rgb(210, 234, 255);
   padding: 10px;
@@ -19,4 +25,18 @@
   flex-direction: row;
   align-items: center;
   gap: 40px;
+}
+
+.educationItem {
+  background-color: rgb(210, 234, 255);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.educationItemCtaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }

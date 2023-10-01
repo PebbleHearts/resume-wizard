@@ -3,8 +3,16 @@ export type Experience = {
   company: string;
   startDate: string;
   endDate: string;
-  description: string[]
-}
+  description: string[];
+};
+
+export type Education = {
+  startDate: string;
+  endDate: string;
+  university: string;
+  info: string;
+  educationType: string;
+};
 
 export type ResumeData = {
   personalInfo: {
@@ -15,9 +23,14 @@ export type ResumeData = {
   };
   profile: {
     description: string;
-  }
+  };
   experience: Experience[];
-  educationDetails: { startDate: string, endDate: string, university: string, info: string, educationType: string }[]
-  skills: { label: string, percentage: number }[];
-  references: { name: string; detail: string; phoneNumber: string; email: string }[]
-}
+  educationDetails: Education[];
+  skills: { label: string; percentage: number }[];
+  references: {
+    name: string;
+    detail: string;
+    phoneNumber: string;
+    email: string;
+  }[];
+};

@@ -6,13 +6,14 @@ import { ResumeData } from "../../../types/common";
 import PersonalInfoForm from "./components/personal-info-form/PersonalInfoForm";
 import ExperienceForm from "./components/experience-form/ExperienceForm";
 import SkillsForm from "./components/skills-form/SkillsForm";
+import EducationForm from "./components/education-form/EducationForm";
 
 type EditDetailsFormProps = {
   data: ResumeData;
   setData: React.Dispatch<React.SetStateAction<ResumeData>>;
 };
 
-const formKeyArray = [PersonalInfoForm, ExperienceForm, SkillsForm];
+const formKeyArray = [PersonalInfoForm, ExperienceForm, SkillsForm, EducationForm];
 
 const EditDetailsForm = ({ data, setData }: EditDetailsFormProps) => {
   const [step, setStep] = useState<number>(0);
