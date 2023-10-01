@@ -20,6 +20,7 @@
   align-items: center;
   border-radius: 5px;
 }
+
 .skillItemPercentAndCTA {
   display: flex;
   flex-direction: row;
@@ -35,8 +36,18 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .educationItemCtaContainer {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.addButton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addEducationButton {
+  padding: 10px 0px;
 }
