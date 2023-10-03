@@ -6,6 +6,7 @@ import Template1 from "../../components/templates/template-1/Template1";
 import { DUMMY_RESUME_DATA } from "../../constants/dummy-resume-data";
 import { PdfPreviewModal } from "../../components";
 import EditDetailsForm from "./components/EditDetailsForm";
+import { Link } from "react-router-dom";
 
 const a4Height = 1404;
 const a4Width = 990;
@@ -52,6 +53,7 @@ function HomeScreen() {
         <button onClick={saveAsPdf} style={{ padding: "5px"}}>
           Save as PDF
         </button>
+        <Link to="/login">Logout</Link>
         <button onClick={handlePdfPreview} style={{ padding: "5px"}}>
           Preview PDF
         </button>
