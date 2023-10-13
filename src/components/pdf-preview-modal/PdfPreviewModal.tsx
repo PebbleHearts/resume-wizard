@@ -7,6 +7,7 @@ type SelectItemModalProps = {
     onClose: () => void;
 };
 
+// component to preview the pdf
 const PdfPreviewModal = ({ onClose, pdfString }: SelectItemModalProps) => {
     return (
         <Portal onClose={onClose}>
